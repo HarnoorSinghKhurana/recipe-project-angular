@@ -12,8 +12,9 @@ export class TitleTagService {
   private descriptionMeta: string = "og:description";
   private imageMeta: string = "og:image";
   private secureImageMeta: string = "og:image:secure_url";
-  private twitterTitleMeta: string = "twitter:text:title";
+  private twitterTitleMeta: string = "twitter:title";
   private twitterImageMeta: string = "twitter:image";
+  private twitterCard: string = "twitter:card";
 
   constructor(private titleService: Title, private metaService: Meta) { }
 
@@ -30,7 +31,8 @@ export class TitleTagService {
       new MetaTag(this.imageMeta, imageUrl, true),
       new MetaTag(this.secureImageMeta, imageUrl, true),
       new MetaTag(this.twitterTitleMeta, title, false),
-      new MetaTag(this.twitterImageMeta, imageUrl, false)
+      new MetaTag(this.twitterImageMeta, imageUrl, false),
+      new MetaTag(this.twitterCard, 'summary', false)
     ];
     this.setTags(tags);
   }
